@@ -48,7 +48,7 @@ a:hover {
 
         <h1 data-testid="slackUserName">Elvis Owarieta</h1>
         
-        <img src="img/img.jpg" alt="Your Slack Username"  data-testid="slackDisplayImage">
+        <img src="img.jpg" alt="Your Slack Username"  data-testid="slackDisplayImage">
 
         <p data-testid="currentDayOfTheWeek">Monday</p>
 
@@ -73,8 +73,6 @@ a:hover {
             const timeString = `${hours}:${minutes}:${seconds}`;
             currentUTCTimeElement.textContent = timeString + ` UTC`;
         }
-
-        // Update the UTC time initially and then every second
         updateCurrentUTCTime();
         setInterval(updateCurrentUTCTime, 1000);
 

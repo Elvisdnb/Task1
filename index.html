@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRONT-END TRACK | STAGE ONE TASK</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+img {
+    max-width: 250px;
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1 data-testid="slackUserName">Elvis Owarieta</h1>
+        
+        <img src="img.jpg" alt="Elvisdnb"  data-testid="slackDisplayImage">
+
+        <p data-testid="currentDayOfTheWeek">Monday</p>
+
+        <p data-testid="currentUTCTime">8:00 PM</p>
+
+        <p data-testid="myTrack">Frontend Track</p>
+
+        <a href="https://github.com/Elvisdnb/Task1" data-testid="githubURL">GitHub Repository</a>
+
+    </div>
+
+
+
+    <script>
+
+    function updateCurrentUTCTime() {
+            const currentUTCTimeElement = document.querySelector('[data-testid="currentUTCTime"]');
+            const now = new Date();
+            const hours = now.getUTCHours().toString().padStart(2, '0');
+            const minutes = now.getUTCMinutes().toString().padStart(2, '0');
+            const seconds = now.getUTCSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            currentUTCTimeElement.textContent = timeString + ` UTC`;
+        }
+
+        // Update the UTC time initially and then every second
+        updateCurrentUTCTime();
+        setInterval(updateCurrentUTCTime, 1000);
+
+    function updateDayOfWeek() {
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const currentDayElement = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+        const currentDate = new Date();
+        const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+        currentDayElement.textContent = currentDayOfWeek;
+    }
+    updateDayOfWeek();
+    </script>
+</body>
+</html>

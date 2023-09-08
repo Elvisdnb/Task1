@@ -64,19 +64,12 @@ a:hover {
 
     <script>
 
-    function updateCurrentUTCTime() {
-            const currentUTCTimeElement = document.querySelector('[data-testid="currentUTCTime"]');
-            const now = new Date();
-            const hours = now.getUTCHours().toString().padStart(2, '0');
-            const minutes = now.getUTCMinutes().toString().padStart(2, '0');
-            const seconds = now.getUTCSeconds().toString().padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            currentUTCTimeElement.textContent = timeString + ` UTC`;
-        }
+ let time = document.querySelector(`[data-testid="currentUTCTime"]`);
 
-        // Update the UTC time initially and then every second
-        updateCurrentUTCTime();
-        setInterval(updateCurrentUTCTime, 1000);
+      setInterval(() => {
+        const d = Date.now();
+        time.innerHTML = d;
+      }, 100);
 
     function updateDayOfWeek() {
         const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
